@@ -33,7 +33,18 @@ namespace CabInvoiceTestCase
 
             Assert.AreEqual(expected, fare1);
         }
+        //UC2-given multiple rides should return invoice summary
+        [TestMethod]
+        public void GivenMultipleRidesShouldReturnTotalFare()
+        {
+            //creating object of invoice generator
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
+            Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
+            double expected = 60.0;
+            //generating summary for rides
+            double actual = invoiceGenerator.CalculateFare(rides);
+            Assert.AreEqual(actual, expected);
 
-
+        }
     }
 }
