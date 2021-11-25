@@ -54,7 +54,7 @@ namespace CabInvoiceGenerator
                     throw new InvoiceGeneratorException(InvoiceGeneratorException.ExceptionType.INVALID_DISTANCE, "invalid distance");
 
                 }
-                if (distance <= 0)
+                if (time <= 0)
                 {
                     throw new InvoiceGeneratorException(InvoiceGeneratorException.ExceptionType.INVALID_TIME, "invalid time");
 
@@ -65,3 +65,4 @@ namespace CabInvoiceGenerator
 
     }
 }
+

@@ -9,20 +9,31 @@ namespace CabInvoiceTestCase
         [TestMethod]
         public void TestMethod1()
         {
-            [TestMethod]
-            void GivenDistanceAndTimeShouldReturnTotalFare()
-            {
-                double expected = 25;
-                double distance = 2.0;
-                int time = 5;
 
-                InvoiceGenerator invoice = new InvoiceGenerator(RideType.NORMAL);
+            double expected = 25;
+            double distance = 2.0;
+            int time = 5;
 
-                double fare = invoice.calculateFare(distance, time);
+            InvoiceGenerator invoice = new InvoiceGenerator(RideType.NORMAL);
 
-                Assert.AreEqual(expected, fare);
-            }
+            double fare = invoice.calculateFare(distance, time);
 
+            Assert.AreEqual(expected, fare);
         }
+        [TestMethod]
+        public void TestMethod2()
+        {
+            double expected = 80;
+            double distance = 4.0;
+            int time = 10;
+
+            InvoiceGenerator invoice1 = new InvoiceGenerator(RideType.PREMIUM);
+
+            double fare1 = invoice1.calculateFare(distance, time);
+
+            Assert.AreEqual(expected, fare1);
+        }
+
+
     }
 }
