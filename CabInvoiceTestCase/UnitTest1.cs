@@ -9,7 +9,6 @@ namespace CabInvoiceTestCase
         [TestMethod]
         public void TestMethod1()
         {
-
             double expected = 25;
             double distance = 2.0;
             int time = 5;
@@ -46,5 +45,22 @@ namespace CabInvoiceTestCase
             Assert.AreEqual(actual, expected);
 
         }
+        //UC3-given multiple rides should return invoice summary
+        [TestMethod]
+        public void GivenMultipleRidesShouldReturnInvoiceSummary()
+        {
+            //creating object of invoice generator
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
+            Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
+
+            //generating summary for rides
+            double actualSummary = invoiceGenerator.CalculateFare(rides);
+            InvoiceSummary expectedSummary = new InvoiceSummary(2, 60.0);
+
+            //Assert
+            Assert.AreEqual(actualSummary, expectedSummary);
+
+        }
+
     }
 }
